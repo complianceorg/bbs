@@ -40,7 +40,7 @@ class SurveysController extends Controller
      public function store(Request $request)
      {
        $user = new User();
-       $user = User::where('email',$request->email)->first();
+       $user = User::where('remember_token',$request->_token)->firstOrfail();
        $user->age = $request->age;
        $user->sex = $request->sex;
        $user->job = $request->job;

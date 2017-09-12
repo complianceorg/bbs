@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-      return view('login.login');
+      return view('login.signup');
     }
 
     /**
@@ -48,7 +48,7 @@ class UsersController extends Controller
        $id=User::all()->last()->id;
        mb_send_mail($email, 'メール認証', "メール認証コード  {$password}", 'From: keiziban');
 
-       return redirect('/login/login/')->with([
+       return redirect('/login/signup')->with([
          'flash_message'=> 'メールをお送りしました。メールに記載されたメール認証コードを入力してください。',
          "id"=>$id,
         ]);

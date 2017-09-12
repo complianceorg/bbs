@@ -8,9 +8,9 @@
 
   <div class="detail">
       <h3>コメント一覧</h3>
-      @forelse($comments as $single_comment)
+      @forelse($comments as $key=>$single_comment)
       <div class="detail-box">
-			<p class="detail-number">NO.{{ $single_comment->id }}
+			<p class="detail-number">NO.{{ $key+1 }}
         <span>{{ $single_comment->commenter }}</span>
         <span>更新日時 {{ date("Y年 m月 d日",strtotime($single_comment->created_at)) }}</span>
       </p>

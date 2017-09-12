@@ -5,7 +5,7 @@
 <div class="ankerto-box">
 <div class="ankerto-text">
 	<p>■BOに関する簡単なアンケートにお答えください。</p>
-	<form action= {{ url('/posts/survey') }} method="post">
+	<form action= "{{ url('/login/survey') }}" method="post">
 		{{csrf_field()}}
 		<h3>年齢<span class="aka" >※必須</span></h3>
 		<label>
