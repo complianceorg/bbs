@@ -3,7 +3,7 @@
 namespace bbs\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+//use Request;
 use bbs\Http\Requests;
 use bbs\Http\Controllers\Controller;
 
@@ -44,7 +44,11 @@ class SurveysController extends Controller
        $user->age = $request->age;
        $user->sex = $request->sex;
        $user->job = $request->job;
-       $user->kaigaibo = $request->kaigaibo;
+
+
+       $kaigaiboImp = implode(',',$request->kaigaibo);
+       $user->kaigaibo = $kaigaiboImp;
+
        $user->save();
 
        return redirect('/posts')->with('flash_message','ご協力ありがとうございました。');

@@ -404,4 +404,13 @@ input[type="checkbox"] {
 	padding: 15px;
 	box-sizing: border-box;
 }
+.hidden {
+  display: none;
+}
 
+.flash_message {
+  text-align: center;
+  padding: 5px;
+  color: green;
+  background: Lavender;
+}

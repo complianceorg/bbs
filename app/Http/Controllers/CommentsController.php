@@ -61,7 +61,8 @@ class CommentsController extends Controller
     {
       # 例 : SELECT * FROM Posts WHERE id = $id
       $post = Post::find($id);
-      $comments=Comment::where('post_id',$id)->latest()->get();
+      $comments=Comment::where('post_id',$id)->get();
+      //$comments=Comment::where('post_id',$id)->latest()->get();
       return view('posts.single', compact('post', 'comments'));
     }
 
@@ -73,7 +74,7 @@ class CommentsController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -85,7 +86,14 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $post = Post::find($id);
+      $comments=Comment::where('post_id',$id)->get();
+      //$comments=Comment::where('post_id',$id)->latest()->get();
+
+      //$reply="<<".$request->replyid ."&lt;br&gt;";
+      $reply="<<".$request->replyid;
+      return view('posts.single', compact('post', 'comments','reply'));
+        //return url('/posts/single',$id)->with('reply',$reply);
     }
 
     /**
