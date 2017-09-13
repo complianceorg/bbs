@@ -18,14 +18,15 @@ class PostsController extends Controller
     */
     public function index()
     {
-      $posts   = Post::all()->sortBy('cat_id');
-//      $posts2   = Post::sortBy('cat_id')->toSql();
+      //$post = new Post();
+      //$posts   = $post->Category()->get();
+      $posts  = Post::all()->groupBy('cat_id')->toArray();
+      //SELECT cat_id FROM `posts` GROUP BY cat_id
+      $existcat=Post::distinct()->select('cat_id')->get();
 //      $posts2   = Post::all();
       $categories = Category::all();
 
-      return view('posts.index', compact('posts','categories'));
-//      return view('posts.index', compact('posts','categories',' posts2'));
-
+      return view('posts.index', compact('posts','categories','existcat'));
 
     }
 
@@ -47,7 +48,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-      $post = new Post();;
+      $post = new Post();
       $title = $post->title = $request->title;
       $cat_id = $post->cat_id = $request->cat_id;
       $content = $post->content = $request->content;

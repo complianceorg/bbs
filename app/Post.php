@@ -16,6 +16,6 @@ class Post extends Model
 
   public function Category(){
     // 投稿は1つのカテゴリーに属する
-    return $this->belongsTo('bbs\Category','cat_id');
+    return $this->belongsTo('bbs\Category','cat_id','name');
   }
 }
