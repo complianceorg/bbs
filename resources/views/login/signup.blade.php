@@ -4,6 +4,11 @@
     <div class="ninsyou-box">
       <form action="{{ url('login/conf') }}" method="post" class="passform">
         <h2 class="pass">認証コード</h2>
+        {{-- 新規作成や更新時のValidateエラーメッセージ --}}
+@if (session('flash_message'))
+<div class="flash_message" onclick="this.classList.add('hidden')">{{session('flash_message')}}
+</div>
+@endif
         {{ csrf_field() }}
         <input class="psps" type="password" name="password" required>
         {{--<input type="hidden" name="email" value="{{$id or 'default'}}">--}}
