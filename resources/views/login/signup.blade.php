@@ -1,14 +1,18 @@
 @extends('layouts.default')
 @section('content')
 <div class="wrapper">
-  <form action="{{ url('login/conf') }}" method="post" class="passform">
-    <h2 class="pass">認証コード</h2>
-    {{ csrf_field() }}
-    <input class="psps" type="password" name="password" required>
-    {{--<input type="hidden" name="email" value="{{$id or 'default'}}">--}}
-    <input class="psbtn" type="submit" value="認証">
-  </form>
-  <p><a href="{{url('/login/login')}}">ログイン画面へ行く</a></p>
+  <div class="nin-box">
+    <div class="ninsyou-box">
+      <form action="{{ url('login/conf') }}" method="post" class="passform">
+        <h2 class="pass">認証コード</h2>
+        {{ csrf_field() }}
+        <input class="psps" type="password" name="password" required>
+        {{--<input type="hidden" name="email" value="{{$id or 'default'}}">--}}
+        <input class="psbtn" type="submit" value="認証">
+        </form>
+        <p><a href="{{url('/login/login')}}">ログイン画面へ行く</a></p>
+    </div>
+  </div>
   <div class="login-box">
     <h2 class="log-midashi">BO掲示板＆ツールを使うならこちらから！</h2>
     <p class="log-text">下の３つの項目の中から一つ選んで、メールアドレス登録またはLINE友達登録またはtwitterの相互フォローを行ってください。折り返し、ログインに必要なパスワードをお教えします。</p>
