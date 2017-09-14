@@ -9,7 +9,7 @@
 		{{csrf_field()}}
 		<h3>年齢<span class="aka" >※必須</span></h3>
 		<label>
-			<input type="radio" name="age" class="radio01-input" value="20代以下" required>
+			<input type="radio" name="age" class="radio01-input" value="20代以下">
 			<span class="radio01-parts">20代以下</span>
 		</label>
 		<label>
@@ -26,7 +26,7 @@
 		</label>
 		<h3>性別<span class="aka">※必須</span></h3>
 		<label>
-			<input type="radio" name="sex" class="radio01-input" value="男性" required>
+			<input type="radio" name="sex" class="radio01-input" value="男性" >
 			<span class="radio01-parts">男性</span>
 		</label>
 		<label>
@@ -35,7 +35,7 @@
 		</label>
 		<h3>ご職業<span class="aka">※必須</span></h3>
 		<label>
-			<input type="radio" name="job" class="radio01-input" value="会社員" required>
+			<input type="radio" name="job" class="radio01-input" value="会社員" >
 			<span class="radio01-parts">会社員</span>
 		</label>
 		<label>
@@ -52,7 +52,7 @@
 		</label>
 		<h3>現在どこのBO業者を利用していますか？<span class="aka">※必須</span></h3>
 		<label>
-			<input type="checkbox" name="kaigaibo[]" value="ハイローオーストラリア" checked="checked" class="check-input" required>
+			<input type="checkbox" name="kaigaibo[]" value="ハイローオーストラリア" checked="checked" class="check-input" >
 			<span class="check-name">ハイローオーストラリア</span>
 		</label>
 		<label>

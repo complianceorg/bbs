@@ -3,8 +3,10 @@ use Illuminate\Http\Request;
 use bbs\Http\Requests;
 use bbs\Http\Controllers\Controller;
 use bbs\User;
+
 Route::resource('/posts', 'PostsController');
 Route::resource('/posts/single', 'CommentsController');
+
 Route::resource('/login/signup', 'UsersController');
 Route::resource('/login/conf', 'ConfsController');
 Route::resource('/login/survey', 'SurveysController');
@@ -15,9 +17,14 @@ Route::get('/login/login', function () {
 Route::get('/login/logout', function () {
   return view('login.logout');
 });
+
 Route::post('/login/conf2', function (Request $request){
     $user = new User();
-    $user = User::where('email',$request->email)->firstOrfail();
+    $user = User::where('email',$request->email)->first();
+    if (! $user) {
+        \Session::flash('flash_message', 'このメールアドレスは登録されていません。登録をおねがいします。');
+        return redirect('login/signup');
+    }
     if($user->flag == 1) {
       return redirect('/posts')->with('flash_message','ようこそ');
     }else {

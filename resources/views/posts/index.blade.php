@@ -40,16 +40,23 @@
   </div>
   <div class="detail">
     <h2>既存のスレッドを見る</h2>
-    @foreach($posts as $post)
-    <div class="detail-box" id="{{ $post->cat_id }}">
-      <h3>カテゴリー：{{ $post->cat_id }}</h3>
-      <p class="detail-number">
-          <span>タイトル：{{ $post->title }}</span>
-      </p>
-      <p>内容：{{ $post->content }}</p>
-      <a href="{{url("/posts/single/{$post->id}")}}">続きを読む</a>
-    </div>
-    @endforeach
+<?php foreach ($existcat as $key => $category) {
+        echo <<< EOM
+        <div class="detail-box" id="{$category['cat_id']}">
+        <h3>カテゴリー：{$category['cat_id']}</h3>
+EOM;
+      foreach ($posts["{$category['cat_id']}"] as $key => $post) {
+        echo <<< EOM
+        <p class="detail-number">
+        <span>タイトル：{$post['title']}</span>
+        </p>
+        <p>内容：{$post['content']}</p>
+        <a href="./posts/single/{$post['id']}">続きを読む</a>
+EOM;
+}
+echo "</div>";
+}
+?>
   </div>
 </div>
   @endsection

@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="{{ url('/css/reset.css') }}">
 	<link rel="stylesheet" href="{{ url('/css/style.css') }}">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><script type="text/javascript" src="./footerFixed.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url('/js/footerFixed.js') }}"></script>
 </head>
 <body>
 <header>
@@ -19,6 +20,18 @@
 <div class="flash_message" onclick="this.classList.add('hidden')">{{session('flash_message')}}
 </div>
 @endif
+
+{{-- 新規作成や更新時のValidateエラーメッセージ --}}
+@if (count($errors) > 0)
+		<div class="alert alert-danger">
+				<ul>
+						@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+						@endforeach
+				</ul>
+		</div>
+@endif
+
 @yield('content')
 
 <footer id="footer">
