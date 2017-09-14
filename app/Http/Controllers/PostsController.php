@@ -16,10 +16,10 @@ class PostsController extends Controller
     /**
     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
     */
-    public function index()
+    public function index(Request $request)
     {
-      //$post = new Post();
-      //$posts   = $post->Category()->get();
+
+      $this->SignupOrView($request);
       $posts  = Post::all()->groupBy('cat_id')->toArray();
       $existcat=Post::distinct()->select('cat_id')->get();
       $categories = Category::all();
@@ -28,6 +28,14 @@ class PostsController extends Controller
 
     }
 
+    public function SignupOrView(Request $request)
+    {
+        $RequestIn=new Request;
+        $request->session()->put('SignupOrView', 'View');
+        $RequestIn->session()->get('SignupOrView', function() {
+        return redirect('/login/signup');
+        });
+    }
 
     /**
      * Show the form for creating a new resource.

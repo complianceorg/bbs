@@ -16,12 +16,14 @@
 	<h1>BOツール掲示板</h1>
 	<a href="{{url('/login/logout')}}">ログアウト</a>
 </header>
+{{--
 @if (session('flash_message'))
 <div class="flash_message" onclick="this.classList.add('hidden')">{{session('flash_message')}}
 </div>
 @endif
+--}}
 
-{{-- 新規作成や更新時のValidateエラーメッセージ --}}
+{{-- 新規作成や更新時のValidateエラーメッセージ--}}
 @if (count($errors) > 0)
 		<div class="alert alert-danger">
 				<ul>
