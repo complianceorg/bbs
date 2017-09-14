@@ -51,7 +51,7 @@ EOM;
         <span>タイトル：{$post['title']}</span>
         </p>
         <p>内容：{$post['content']}</p>
-        <a href="./single/{$post['id']}">続きを読む</a>
+        <a href="./posts/single/{$post['id']}">続きを読む</a>
 EOM;
 }
 echo "</div>";

@@ -40,7 +40,13 @@ class SurveysController extends Controller
      public function store(Request $request)
      {
        $user = new User();
-       $user = User::where('remember_token',$request->_token)->firstOrfail();
+       $user = User::where('remember_token',$request->_token)->first();
+
+       if (! $user) {
+           \Session::flash('flash_message', '無効なトークンです。');
+           return redirect('auth/signup');
+       }
+
        $user->age = $request->age;
        $user->sex = $request->sex;
        $user->job = $request->job;

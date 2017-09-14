@@ -21,9 +21,7 @@ class PostsController extends Controller
       //$post = new Post();
       //$posts   = $post->Category()->get();
       $posts  = Post::all()->groupBy('cat_id')->toArray();
-      //SELECT cat_id FROM `posts` GROUP BY cat_id
       $existcat=Post::distinct()->select('cat_id')->get();
-//      $posts2   = Post::all();
       $categories = Category::all();
 
       return view('posts.index', compact('posts','categories','existcat'));

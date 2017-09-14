@@ -39,19 +39,25 @@ class UsersController extends Controller
      */
      public function store(Request $request)
      {
-       $user = new User();;
+       $user = new User();
+       if ($user->email == $request->email) {
+         return redirect('/login/login')->with('flash_message','このメールアドレスは既に登録済です。ログインしてください。');
+       }
+
        $email = $user->email = $request->email;
        $password = $user->password = RAND()*100;
        $user->flag = 0;
        $user->remember_token=$request->_token;
-       $user->save();
-       $id=User::all()->last()->id;
-       mb_send_mail($email, 'メール認証', "メール認証コード  {$password}", 'From: keiziban');
 
-       return redirect('/login/signup')->with([
-         'flash_message'=> 'メールをお送りしました。メールに記載されたメール認証コードを入力してください。',
-         "id"=>$id,
-        ]);
+
+       $user->save();
+
+       if (mb_send_mail($email, 'メール認証', "メール認証コード  {$password}", 'From: keiziban')) {
+         return redirect('/login/signup')->with('flash_message','メールをお送りしました。メールに記載されたメール認証コードを入力してください。');
+       }else {
+         return redirect('/login/signup')->with('flash_message','メール送信に失敗しました。もう一度お確かめください。');
+       };
+
      }
 
 
