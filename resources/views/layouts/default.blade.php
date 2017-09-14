@@ -20,6 +20,18 @@
 <div class="flash_message" onclick="this.classList.add('hidden')">{{session('flash_message')}}
 </div>
 @endif
+
+{{-- 新規作成や更新時のValidateエラーメッセージ --}}
+@if (count($errors) > 0)
+		<div class="alert alert-danger">
+				<ul>
+						@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+						@endforeach
+				</ul>
+		</div>
+@endif
+
 @yield('content')
 
 <footer id="footer">

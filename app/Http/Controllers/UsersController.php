@@ -3,10 +3,10 @@
 namespace bbs\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use bbs\Http\Requests;
 use bbs\Http\Controllers\Controller;
 
+use Validator;
 use bbs\User;
 
 class UsersController extends Controller
@@ -31,6 +31,16 @@ class UsersController extends Controller
         //
     }
 
+
+    // バリデーションのルール
+    public $validateRules = [
+      'email' => 'unique:users|max:255'
+    ];
+    // バリデーションのエラーメッセージ
+    public $validateMessages = [
+      'unique' => 'このメールアドレスは既に登録済です。ログインしてください。'
+    ];
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,10 +50,19 @@ class UsersController extends Controller
      public function store(Request $request)
      {
        $user = new User();
-       if ($user->email == $request->email) {
-         return redirect('/login/login')->with('flash_message','このメールアドレスは既に登録済です。ログインしてください。');
-       }
 
+       $val = Validator::make(
+           $request->all(),
+           $this->validateRules,
+           $this->validateMessages
+       );
+
+       //バリデーションNGの場合
+      if($val->fails()){
+          return redirect('/login/login')->withErrors($val)->withInput();
+      }
+
+      //バリデーションOKの場合
        $email = $user->email = $request->email;
        $password = $user->password = RAND()*100;
        $user->flag = 0;
