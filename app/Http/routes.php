@@ -24,6 +24,12 @@ Route::post('/login/conf2', function (Request $request){
       return redirect('/login/signup')->with('flash_message','認証されていません。もう一度登録をお願いします。');
     }
 });
+
+// Route::post('/posts/reply', function (Request $request, $id){
+//     $reply="<<".$request->reply ."&lt;br&gt;";
+//       return redirect()->action('CommentsController@show',$id)->with('reply',$reply);
+// });
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

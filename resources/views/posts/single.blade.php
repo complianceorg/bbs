@@ -15,7 +15,12 @@
         <span>更新日時 {{ date("Y年 m月 d日",strtotime($single_comment->created_at)) }}</span>
       </p>
 			<p>{{ $single_comment->comment }}</p>
-			<a href="#">返信する</a>
+      <form action="{{url('/posts/single', $post->id)}}" method="post">
+        <input type="hidden" name="replyid" value="{{$key+1}}">
+        <input name="_method" type="hidden" value="PUT">
+        {{csrf_field()}}
+        <input type="submit" name="" value="返信する">
+      </form>
       </div>
       @empty
       <p>コメントはまだありません</p>
@@ -24,7 +29,7 @@
 
   <h3>コメント追加</h3>
   <div class="keijiban">
-    <form action="{{action('CommentsController@store', $post->id)}}" method="post">
+    <form action="{{url('/posts/single', $post->id)}}" method="post">
       {{csrf_field()}}
     <label for="" class="k-name">
       <span>名前：</span>
@@ -32,7 +37,7 @@
     </label>
     <label for="" class="k-text">
       <span>本文：</span>
-      <textarea name="comment" cols="60" rows="10" required></textarea>
+      <textarea name="comment" cols="60" rows="10"  required>{{$reply or ""}}</textarea>
     </label>
       <input type="hidden" value="{{ $post->id }}" name="post_id">
       <input type="submit">
