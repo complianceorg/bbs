@@ -1,10 +1,18 @@
 @charset "UTF-8";
 
-body,html {
+body {
+	font-size: 62.5%;
+	width: 960px;
+	margin: 0 auto;
+	background-color: #FFF;
+	height: 100%;
+}
+html {
 	font-size: 62.5%;
 	width: 960px;
 	margin: 0 auto;
 	background-color: #F5F5F5;
+	height: 100%;
 }
 .clearfix:after {
 	content: '';
@@ -30,7 +38,9 @@ header a {
 	width: 100%;
 	background-color: #fff;
 	padding-bottom: 20px;
+	min-height: calc(100vh - 25px);
 }
+
 .ninsyou-box {
 	padding: 30px;
 	box-sizing: border-box;
@@ -56,6 +66,28 @@ form {
 	text-align: center;
 	padding: 0 20px 20px;
 }
+.loginform {
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.loginform .psps {
+	margin-bottom: 20px;
+	border: 1px solid #333;
+	width: 200px;
+	height:20px;
+}
+.loginform .psbtn {
+	width: 76px;
+	background-color: #333;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	display: block;
+	margin: 0 auto;
+	letter-spacing: 0.8pt;
+	padding: 8px;
+	box-sizing: border-box;
+}
 .passform {
 	box-sizing: border-box;
 	margin-bottom: 20px;
@@ -77,6 +109,11 @@ form {
 	letter-spacing: 0.8pt;
 	padding: 8px;
 	box-sizing: border-box;
+}
+.logintop {
+	text-align: center;
+	font-size: 1.3rem;
+	display: block;
 }
 .pass {
 	font-size: 2rem;
@@ -175,6 +212,14 @@ form {
 .logoutform p {
 	margin-bottom: 20px;
 	font-size: 1.5rem;
+}
+.m-icon p {
+	text-align: center;
+	margin-bottom: 15px;
+}
+.m-icon .fa-big {
+	font-size: 6rem;
+	color: #333;
 }
 .ankerto-box {
 	width: 100%;
@@ -417,6 +462,7 @@ input[type="checkbox"] {
 	color: #fff;
 	text-align: center;
 	padding: 15px;
+	height: 25px;
 	box-sizing: border-box;
 }
 .hidden {
