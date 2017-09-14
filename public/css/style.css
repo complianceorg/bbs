@@ -29,22 +29,16 @@ header a {
 	background-color: #fff;
 padding-bottom: 20px;
 }
-.nin-box {
-	padding: 20px;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: space-between;
-}
 .ninsyou-box {
 	border: 1px solid #000;
 	padding: 10px;
 	box-sizing: border-box;
-	width: 48%;
+	width: 90%;
+	margin: 0 auto;
 }
-.logninsyou-box {
-	width: 48%;
-	padding: 10px;
-	border: 1px solid #000;
+.ninsyou-box p {
+	text-align: center;
+	font-size: 1.3rem;
 }
 h1 {
 	font-size: 3.5rem;
@@ -61,7 +55,6 @@ form {
 	background-color: #fff;
 }
 .passform {
-	margin-bottom: 50px;
 	box-sizing: border-box;
 	padding: 30px;
 }
@@ -425,6 +418,10 @@ input[type="checkbox"] {
 .hidden {
   display: none;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> a5040e423aa0d6f4cc677a9e65819fb0d3306fd0
 .flash_message {
   text-align: center;
   padding: 5px;

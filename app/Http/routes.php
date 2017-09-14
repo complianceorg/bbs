@@ -23,7 +23,7 @@ Route::post('/login/conf2', function (Request $request){
     $user = User::where('email',$request->email)->first();
     if (! $user) {
         \Session::flash('flash_message', 'このメールアドレスは登録されていません。登録をおねがいします。');
-        return redirect('auth/signup');
+        return redirect('login/signup');
     }
     if($user->flag == 1) {
       return redirect('/posts')->with('flash_message','ようこそ');

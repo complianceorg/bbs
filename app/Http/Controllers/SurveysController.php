@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use bbs\Http\Requests;
 use bbs\Http\Controllers\Controller;
 
+use Validator;
 use bbs\User;
 
 class SurveysController extends Controller
@@ -31,6 +32,21 @@ class SurveysController extends Controller
         //
     }
 
+
+
+    // バリデーションのルール
+    public $validateRules = [
+      'age' => 'required',
+      'sex' => 'required',
+      'job' => 'required'
+    ];
+    // バリデーションのエラーメッセージ
+    public $validateMessages = [
+      'age.required' => '年齢を選択してください。',
+      'sex.required' => '性別を選択してください。',
+      'job.required' => 'ご職業を選択してください。',
+    ];
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,11 +56,25 @@ class SurveysController extends Controller
      public function store(Request $request)
      {
        $user = new User();
+
+       //バリデーション
+       $val = Validator::make(
+           $request->all(),
+           $this->validateRules,
+           $this->validateMessages
+       );
+
+       //バリデーションNGの場合
+      if($val->fails()){
+          return redirect('/login/survey')->withErrors($val)->withInput();
+      }
+
+      //バリデーションOKの場合
        $user = User::where('remember_token',$request->_token)->first();
 
        if (! $user) {
-           \Session::flash('flash_message', '無効なトークンです。');
-           return redirect('auth/signup');
+           \Session::flash('flash_message', '無効なトークンです。ユーザー登録をお願いします。');
+           return redirect('login/signup');
        }
 
        $user->age = $request->age;

@@ -43,7 +43,7 @@ class ConfsController extends Controller
        $user = User::where('remember_token',$request->_token)->first();
        if (! $user) {
            \Session::flash('flash_message', '無効なトークンです。もう一度やり直してください。');
-           return redirect('auth/signup');
+           return redirect('login/signup');
        }
 
        if($user->password == $request->password) {
@@ -51,7 +51,7 @@ class ConfsController extends Controller
          $user->save();
          return redirect('/login/survey')->with('flash_message','ご協力をお願いします。');
        }else {
-         return redirect('/login/login')->with('flash_message','パスワードが違います。');
+         return redirect('/login/signup')->with('flash_message','パスワードが違います。');
        }
      }
 
