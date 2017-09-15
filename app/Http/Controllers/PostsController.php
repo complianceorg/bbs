@@ -19,7 +19,7 @@ class PostsController extends Controller
     public function index(Request $request)
     {
 
-      $this->SignupOrView($request);
+  //    $this->SignupOrView($request);
       $posts  = Post::all()->groupBy('cat_id')->toArray();
       $existcat=Post::distinct()->select('cat_id')->get();
       $categories = Category::all();

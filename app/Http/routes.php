@@ -4,7 +4,7 @@ use bbs\Http\Requests;
 use bbs\Http\Controllers\Controller;
 use bbs\User;
 
-Route::resource('/posts', 'PostsController');
+Route::resource('/posts','PostsController');
 Route::resource('/posts/single', 'CommentsController');
 
 Route::resource('/login/signup', 'UsersController');
@@ -23,7 +23,7 @@ Route::post('/login/conf2', function (Request $request){
     $user = User::where('email',$request->email)->first();
     if (! $user) {
         \Session::flash('flash_message', 'このメールアドレスは登録されていません。登録をおねがいします。');
-        return redirect('login/signup');
+        return redirect('login/login');
     }
     if($user->flag == 1) {
       return redirect('/posts')->with('flash_message','ようこそ');
