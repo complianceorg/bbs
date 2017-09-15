@@ -18,7 +18,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-      return view('login.signup');
+      if (session()->has('LoginOrView')) {
+      return view('login.login');
+      }else{
+        return view('login.signup');
+      }
+
     }
 
     /**

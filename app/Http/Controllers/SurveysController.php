@@ -87,7 +87,8 @@ class SurveysController extends Controller
 
        $user->save();
 
-       Session::put('SignupOrView','View');
+       \Session::put('SignupOrView','View');
+       \Session::put('LoginOrView','View');
        return redirect('/posts')->with('flash_message','ご協力ありがとうございました。');
    }
 
