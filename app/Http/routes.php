@@ -34,6 +34,11 @@ Route::post('/login/conf2', function (Request $request){
     }
 });
 
+
+Route::get('/login/signupab', function (){
+    Session::forget('LoginOrView');
+    return redirect('/login/signup');
+});
 // Route::post('/posts/reply', function (Request $request, $id){
 //     $reply="<<".$request->reply ."&lt;br&gt;";
 //       return redirect()->action('CommentsController@show',$id)->with('reply',$reply);
