@@ -16,26 +16,20 @@ class PostsController extends Controller
     /**
     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
     */
-    public function index(Request $request)
+    public function index()
     {
-
-  //    $this->SignupOrView($request);
+      if (session()->has('SignupOrView')) {
       $posts  = Post::all()->groupBy('cat_id')->toArray();
       $existcat=Post::distinct()->select('cat_id')->get();
       $categories = Category::all();
-
       return view('posts.index', compact('posts','categories','existcat'));
 
+      }else{
+      return redirect('/login/signup');
+      }
+
     }
 
-    public function SignupOrView(Request $request)
-    {
-        $RequestIn=new Request;
-        $request->session()->put('SignupOrView', 'View');
-        $RequestIn->session()->get('SignupOrView', function() {
-        return redirect('/login/signup');
-        });
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,10 +72,15 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        # 例 : SELECT * FROM Posts WHERE id = $id
+      if (session()->has('SignupOrView')) {
         $post = Post::find($id);
         $comments=Comment::where('post_id',$id)->latest()->get();
         return view('posts.single', compact('post', 'comments'));
+
+      }else{
+      return redirect('/login/signup');
+      }
+
      }
 
     /**

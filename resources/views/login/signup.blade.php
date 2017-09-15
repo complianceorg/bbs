@@ -26,7 +26,7 @@
     <h3>メールアドレス</h3>
     <form action="{{ url('/login/signup') }}" method="post">
       {{ csrf_field() }}
-    <input type="email" name="email">
+    <input type="email" name="email" required>
     <input class="mail" type="submit" value="送信">
     </form>
     <p>※メールアドレスを登録してください。確認出来次第、折り返しパスワードをお教え致します。</p>

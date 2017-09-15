@@ -15,7 +15,8 @@ Route::get('/login/login', function () {
     return view('login.login');
 });
 Route::get('/login/logout', function () {
-  return view('login.logout');
+        Session::forget('SignupOrView');
+        return view('login.logout');
 });
 
 Route::post('/login/conf2', function (Request $request){
@@ -26,6 +27,7 @@ Route::post('/login/conf2', function (Request $request){
         return redirect('login/login');
     }
     if($user->flag == 1) {
+      Session::put('SignupOrView','View');
       return redirect('/posts')->with('flash_message','ようこそ');
     }else {
       return redirect('/login/signup')->with('flash_message','認証されていません。もう一度登録をお願いします。');

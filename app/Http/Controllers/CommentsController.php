@@ -19,7 +19,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+        return redirect('/login/signup');
     }
 
     /**
@@ -40,6 +40,7 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+      if (session()->has('SignupOrView')) {
       $comment = new Comment(['commenter' =>$request->commenter,
                               'post_id'   =>$request->post_id,
                               'comment'   =>$request->comment,
@@ -48,6 +49,11 @@ class CommentsController extends Controller
       $id=$comment->post_id;
 
       return redirect()->action('CommentsController@show',$id)->with('flash_message','コメントを投稿しました');
+
+    }else{
+    return redirect('/login/signup');
+    }
+
     }
 
     /**
@@ -58,11 +64,16 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-      # 例 : SELECT * FROM Posts WHERE id = $id
+      if (session()->has('SignupOrView')) {
       $post = Post::find($id);
       $comments=Comment::where('post_id',$id)->get();
       //$comments=Comment::where('post_id',$id)->latest()->get();
       return view('posts.single', compact('post', 'comments'));
+
+      }else{
+      return redirect('/login/signup');
+      }
+
     }
 
     /**
@@ -85,6 +96,7 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+      if (session()->has('SignupOrView')) {
       $post = Post::find($id);
       $comments=Comment::where('post_id',$id)->get();
       //$comments=Comment::where('post_id',$id)->latest()->get();
@@ -92,7 +104,10 @@ class CommentsController extends Controller
       //$reply="<<".$request->replyid ."&lt;br&gt;";
       $reply="<<".$request->replyid;
       return view('posts.single', compact('post', 'comments','reply'));
-        //return url('/posts/single',$id)->with('reply',$reply);
+
+      }else{
+      return redirect('/login/signup');
+      }
     }
 
     /**

@@ -29,7 +29,7 @@
 
   <h3>コメント追加</h3>
   <div class="keijiban">
-    <form action="{{url('/posts/single', $post->id)}}" method="post">
+    <form action="{{action('CommentsController@store', $post->id)}}" method="post">
       {{csrf_field()}}
     <label for="" class="k-name">
       <span>名前：</span>
