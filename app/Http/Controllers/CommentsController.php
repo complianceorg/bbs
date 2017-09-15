@@ -47,7 +47,6 @@ class CommentsController extends Controller
       $comment->save();
       $id=$comment->post_id;
 
-      //return redirect('Comments/single/{$id}')->with('flash_message','新規スレッドを作成しました');
       return redirect()->action('CommentsController@show',$id)->with('flash_message','コメントを投稿しました');
     }
 

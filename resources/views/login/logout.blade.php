@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.NoLogout')
 @section('content')
 <div class="wrapper">
 <div class="logoutform">

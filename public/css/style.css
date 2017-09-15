@@ -225,6 +225,9 @@ form {
 	width: 100%;
 	margin: 0 auto;
 	background-color: #E8EAF6;
+	height: 1250px;
+	background-color: #fff;
+	position: relative;
 }
 .head {
 	background-color: #3F51B5;
@@ -234,11 +237,6 @@ form {
 }
 .head h1 {
 	color: #fff;
-}
-.ankerto-box {
-	height: 1150px;
-	background-color: #fff;
-	position: relative;
 }
 .ankerto-box .ankerto-text {
 	width: 700px;

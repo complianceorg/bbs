@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.NoLogout')
 @section('content')
 <div class="wrapper">
 	<div class="m-icon">
@@ -10,6 +10,6 @@
     <input class="psps" type="email" name="email" required>
     <input class="psbtn" type="submit" value="ログイン" >
   </form>
-  <a class="logintop" href="http://caching-atm.net/public/login/signup">トップに戻る</a>
+  <a class="logintop" href="http://caching-atm.net/public/login/signup">新規登録する</a>
 </div>
 @endsection

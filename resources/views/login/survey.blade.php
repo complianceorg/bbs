@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.NoLogout')
 @section('content')
 <div class="wrapper">
 <div class="head"><h2>BOに関する簡単アンケート</h2></div>
@@ -52,7 +52,7 @@
 		</label>
 		<h3>現在どこのBO業者を利用していますか？<span class="aka">※必須</span></h3>
 		<label>
-			<input type="checkbox" name="kaigaibo[]" value="ハイローオーストラリア" checked="checked" class="check-input" >
+			<input type="checkbox" name="kaigaibo[]" value="ハイローオーストラリア" class="check-input">
 			<span class="check-name">ハイローオーストラリア</span>
 		</label>
 		<label>
