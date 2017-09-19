@@ -1,11 +1,12 @@
 @charset "UTF-8";
-
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 body {
 	font-size: 62.5%;
 	width: 960px;
 	margin: 0 auto;
 	background-color: #FFF;
 	height: 100%;
+	font-family: 'Noto Sans JP';
 }
 html {
 	font-size: 62.5%;
@@ -21,7 +22,7 @@ html {
 }
 header {
 	width: 100%;
-	border-top: 5px solid #333;
+	border-top: 5px solid #FF9600;
 	padding: 50px;
 	box-sizing: border-box;
 	background-color: #fff;
@@ -60,7 +61,18 @@ h2 {
 	text-align: center;
 	font-size: 2.6rem;
 	letter-spacing: 0.8pt;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	background: #FF9600;
+	width: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+	color: #fff;
+}
+h3 {
+	font-size: 1.9rem;
+	margin-bottom: 15px;
+	letter-spacing: 0.8pt;
+	margin-left: 20px;
 }
 form {
 	text-align: center;
@@ -118,6 +130,15 @@ form {
 .pass {
 	font-size: 2rem;
 	font-weight: bold;
+	background-color: #fff;
+	color: #333;
+}
+h2.passnin {
+	font-size: 2rem;
+	font-weight: bold;
+	background-color: #fff;
+	color: #333;
+	margin-bottom: none;
 }
 .login-box {
 	box-sizing: border-box;
@@ -131,6 +152,7 @@ form {
 	background-position: center;
 	font-size: 2.9rem;
 	margin-bottom: 27px;
+	background-color: #fff;
 }
 .log-midashi .mozibig {
 	font-size: 2rem;
@@ -368,7 +390,6 @@ input[type="checkbox"] {
 .tool {
 	width: 100%;
 	height: 500px;
-	border: 1px solid #ff2b2b;
 	position: relative;
 	margin-bottom: 20px;
 }
@@ -392,19 +413,16 @@ input[type="checkbox"] {
 	margin-bottom: 20px;
 }
 .sitecategory li a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	line-height: 2;
-	background-color: #333;
 	padding: 4px 8px;
-	border-radius: 5px;
 	box-sizing: border-box;
 	letter-spacing: 0.8pt;
 }
 .keijiban {
-	width: 50%;
+	width: 96%;
 	margin: 0 auto 30px;
+	text-align: center;
 }
 .keijiban .k-midashi {
 	font-size: 1.5rem;
@@ -430,21 +448,30 @@ input[type="checkbox"] {
 	margin: 0 10px;
 	border: 1px solid #ccc;
 }
+.detail .detail-box2 {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.detail-box2 .detail-wrap {
+	border-bottom: 1px dashed #bbb;
+	margin-bottom: 20px;
+}
 .detail .detail-box {
-	border-bottom: 1px dashed #333;
 	width: 100%;
-	margin: 0 auto 20px;
+	margin: 0 auto;
 	text-align: left;
 	padding-left: 20px;
 	box-sizing: border-box;
+	max-height: 250px;
+	overflow-y: auto;
 }
 .detail-box .detail-number {
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	letter-spacing: 0.8pt;
-	margin-bottom: 30px;
-}
-.detail-number span {
-	margin-left: 20px;
+	margin-bottom: 13px;
 }
 .detail-box a {
 	display: block;
@@ -453,6 +480,12 @@ input[type="checkbox"] {
 	font-size: 1.5rem;
 	letter-spacing: 0.8pt;
 	margin-bottom: 10px;
+}
+.detail-content {
+	margin-left: 30px;
+	letter-spacing: 0.8pt;
+	font-size: 1.3rem;
+	line-height: 1.3;
 }
 #footer{
 	width: 100%;
