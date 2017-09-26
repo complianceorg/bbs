@@ -29,7 +29,7 @@
     <div class="s-box">
     <p><img src="{{ url('/img/line1.jpg') }}" alt="LINE"></p>
     <h3>LINE</h3>
-    <p><a href="#">QRコードのリンク</a></p>
+    <p><img src="" alt="">QRコードのリンク</p>
     <p class="s-text">※LINEのQRコードから友達登録をしてください。<br>確認出来次第、折り返し認証コードをお教え致します。</p>
     </div>
   </div>
