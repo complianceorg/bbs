@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="wrapper">
-<div class="tool">
-<p>ツールが入る</p>
-</div>
 <div class="sitecategory">
  <h2>カテゴリー一覧</h2>
     <ul>

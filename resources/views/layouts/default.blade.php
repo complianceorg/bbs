@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="robots" content="noindex">
-	<title>BOツール掲示板</title>
+	<title>BO掲示板</title>
 	<link rel="stylesheet" href="{{ url('/css/reset.css') }}">
 	<link rel="stylesheet" href="{{ url('/css/style.css') }}">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -13,7 +13,7 @@
 </head>
 <body>
 <header>
-	<h1>BOツール掲示板</h1>
+	<h1>BO掲示板</h1>
 	<a href="{{url('/login/logout')}}">ログアウト</a>
 </header>
 
@@ -33,7 +33,7 @@
 @endif
 @yield('content')
 <footer id="footer">
-		<small>Copyright &copy; <?php echo (date("Y") == "2017") ? "2017": "2017 ～ ".date("Y"); ?> BOツール＆掲示板 All Rights Reserved.</small>
+		<small>Copyright &copy; <?php echo (date("Y") == "2017") ? "2017": "2017 ～ ".date("Y"); ?> BO掲示板 All Rights Reserved.</small>
 </footer>
 </body>
 </html>
